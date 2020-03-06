@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">Groutz</string>
+    <string name="login_name">Σύνδεση μέσω Email</string>
+    <string name="signup_name">Εγγραφή μέσω Email</string>
+    <!-- Strings related to login -->
+    <string name="prompt_name">Όνομα</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Κωδικός</string>
+    <string name="prompt_retype_password">Επανάληψη Κωδικού</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Είσοδος</string>
+    <string name="action_signup">Εγγραφή</string>
+    <string name="first_message">Πρέπει να συνδεθείτε για να προχωρήσετε</string>
+    <string name="welcome">"Welcome"</string>
+    <string name="invalid_username">Μη έγκυρη διεύθυνση email</string>
+    <string name="invalid_password">Ο κωδικός πρέπει να είναι μεγαλύτερος από 5 χαρακτήρες</string>
+    <string name="login_failed">"Login failed"</string>
+    <string name="connectFacebook">Σύνδεση μέσω Facebook</string>
+    <string name="connectGoogle">Σύνδεση μέσω Google</string>
+    <string name="connectEmail">Σύνδεση μέσω Email</string>
+    <string name="signupEmail"><u>Δημιουργία Λογαριασμού</u></string>
+    <string name="imgContentDesc">Image logo</string>
+    <string name="txtName">Καλώς ήρθες</string>
+    <string name="DisconnectButton">Αποσύνδεση</string>
+    <string name="action_settings">Ρυθμίσεις</string>
+    <string name="action_about">Σχετικά</string>
+    <string name="password_mismatch">Οι κωδικοί δεν ταιριάζουν</string>
+    <string name="empty_name">Το όνομα είναι κενό</string>
+    <string name="logo">Groutz logo</string>
+    <string name="search_bar">Αναζήτηση προϊόντος</string>
+</resources>

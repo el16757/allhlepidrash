@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<settings>
+    <host
+        name="snf-870857.vm.okeanos.grnet.gr"
+        login_uri="http://%s/app/login.php?email=%s&amp;password=%s"
+        register_uri="http://%s/app/register.php"
+        cart_uri="http://%s/app/cart.php"
+        product_uri="http://%s/app/product.php?itemName=%s"
+        post_params="name=%s&amp;email=%s&amp;password=%s"
+        cart_post_params="name=%s&amp;item=%s&amp;quantity=%s"
+        cart_get_params="name=%s"
+        cart_delete_params="name=%s&amp;item=%s"
+        />
+    <mail
+        host="smtp.mailtrap.io"
+        port="2525"
+        username="ad0a287eedf817"
+        password="d625a6d4293788"
+        from="HCI Team D5 &lt;teamD5@test.mail&gt;"
+        subject="Welcome to our app!"
+        body="Dear &lt;b&gt;%s&lt;/b&gt;,&lt;br&gt;&lt;br&gt;
+        Thanks for registering! Hope you enjoy our app!&lt;br&gt;&lt;br&gt;
+        Best Regards,&lt;br&gt;
+        HCI Team D5"/>
+</settings>
