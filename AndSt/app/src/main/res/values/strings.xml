@@ -28,6 +28,7 @@
     <string name="empty_name">Το όνομα είναι κενό</string>
     <string name="logo">Groutz logo</string>
     <string name="search_bar">Αναζήτηση προϊόντος</string>
+    <string name="cart">Μεταβίβαση στο καλάθι</string>
     <string name="add_to_cart">Προσθήκη στο καλάθι</string>
     <string name="remove_from_cart">Διαγραφή από το καλάθι</string>
     <string name="details"> Καλως ήρθες στην εφαρμογή μας. Μπορείς να αναζητήσεις ένα συγκεκριμένο προϊόν στην μπάρα πάνω. </string>

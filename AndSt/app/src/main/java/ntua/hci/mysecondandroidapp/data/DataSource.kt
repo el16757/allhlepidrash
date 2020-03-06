@@ -174,7 +174,7 @@ class DataSource {
         }
     }
 
-    fun getCart(username : String ): Result<List<CartItems>>{
+    fun getCart(username : String ): List<CartItems>{
         try {
             val hostSettings = readSettings(R.xml.settings, "host")
 
@@ -197,9 +197,9 @@ class DataSource {
                 val item = CartItems(product)
                 items.add(item)
             }
-            return Result.Success(items)
+            return items
         } catch (e: Throwable) {
-            return Result.Error(IOException("Error couldn't show cart", e))
+            throw IOException("Error couldn't show cart", e)
         }
     }
 

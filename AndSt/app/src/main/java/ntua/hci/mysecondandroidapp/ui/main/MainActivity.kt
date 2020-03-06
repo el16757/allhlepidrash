@@ -10,16 +10,21 @@ import android.widget.SearchView
 //import android.widget.SearchView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_main.toolbar
+import kotlinx.android.synthetic.main.activity_products.*
 import kotlinx.android.synthetic.main.content_main.*
 import ntua.hci.mysecondandroidapp.R
 import ntua.hci.mysecondandroidapp.data.DataSource
 import ntua.hci.mysecondandroidapp.data.Repository
+import ntua.hci.mysecondandroidapp.ui.cart.CartActivity
 import ntua.hci.mysecondandroidapp.ui.cart.ShoppingCart
 import ntua.hci.mysecondandroidapp.ui.product.ProductAdapter
 
 
 class MainActivity : AppCompatActivity() {
+    private lateinit var productAdapter : ProductAdapter
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -31,9 +36,20 @@ class MainActivity : AppCompatActivity() {
         txtName.text = getString(R.string.txtName) + " " + displayName + "!"
 
         if (Intent.ACTION_SEARCH == intent.action){
+            //products_recyclerview.layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
             intent.getStringExtra(SearchManager.QUERY)?.also {
-                query -> ProductAdapter(this@MainActivity,Repository(DataSource()).getProduct(query))
+                query ->ProductAdapter(this@MainActivity,Repository(DataSource()).getProduct(query) )
+                //productAdapter = ProductAdapter(this@MainActivity,Repository(DataSource()).getProduct(query) )
+                //products_recyclerview.adapter = productAdapter
+               // productAdapter.notifyDataSetChanged()
+
             }
+            startActivity(intent)
+        }
+        showBaskets.setOnClickListener {
+            val x = Repository(DataSource()).getCart(displayName)
+            val intent = Intent(this, CartActivity :: class.java)
+            startActivity(intent)
         }
 
         btnDisconnect.setOnClickListener {
@@ -57,6 +73,8 @@ class MainActivity : AppCompatActivity() {
             //Assumes current activity is the searcahble activity
             setSearchableInfo(searchManager.getSearchableInfo(componentName))
             setIconifiedByDefault(false)
+            setSubmitButtonEnabled(true)
+            setQueryRefinementEnabled(true)
         }
         return true
     }

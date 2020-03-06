@@ -17,6 +17,8 @@ import ntua.hci.mysecondandroidapp.ui.main.MainActivity
 
 class ProductAdapter(var context: Context, var products: List<ProductItems> = arrayListOf()) :
     RecyclerView.Adapter<ProductAdapter.ViewHolder>() {
+
+
     override fun onCreateViewHolder(p0: ViewGroup, p1: Int): ProductAdapter.ViewHolder {
         // The layout design used for each list item
         val view = LayoutInflater.from(context).inflate(R.layout.product_row_item, null)
@@ -39,6 +41,8 @@ class ProductAdapter(var context: Context, var products: List<ProductItems> = ar
             itemView.product_name.text = product.itemName
             itemView.store_name.text = product.storename
             itemView.product_price.text = "$${product.price.toString()}"
+
+
             itemView.addToCart.setOnClickListener { view ->
 
                 val item = CartItems(product)
@@ -52,7 +56,6 @@ class ProductAdapter(var context: Context, var products: List<ProductItems> = ar
                 ).show()
 
             }
-
             itemView.removeItem.setOnClickListener { view ->
 
                 val item = CartItems(product)
@@ -68,8 +71,8 @@ class ProductAdapter(var context: Context, var products: List<ProductItems> = ar
 
             }
 
-            }
-
         }
 
     }
+
+}

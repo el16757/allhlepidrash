@@ -1,5 +1,6 @@
 package ntua.hci.mysecondandroidapp.data
 
+import ntua.hci.mysecondandroidapp.data.model.CartItems
 import ntua.hci.mysecondandroidapp.data.model.LoggedInUser
 import ntua.hci.mysecondandroidapp.data.model.ProductItems
 import ntua.hci.mysecondandroidapp.ui.product.ProductAdapter
@@ -54,6 +55,9 @@ class Repository(val dataSource: DataSource) {
     fun getProduct(query : String): List<ProductItems> {
         var x = dataSource.getProducts(query)
         return x
+    }
+    fun getCart(query : String): List<CartItems> {
+       return dataSource.getCart(query)
     }
 
     private fun setLoggedInUser(loggedInUser: LoggedInUser) {
