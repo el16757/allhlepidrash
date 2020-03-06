@@ -15,6 +15,8 @@ import kotlinx.android.synthetic.main.content_main.*
 import ntua.hci.mysecondandroidapp.R
 import ntua.hci.mysecondandroidapp.data.DataSource
 import ntua.hci.mysecondandroidapp.data.Repository
+import ntua.hci.mysecondandroidapp.ui.cart.ShoppingCart
+import ntua.hci.mysecondandroidapp.ui.product.ProductAdapter
 
 
 class MainActivity : AppCompatActivity() {
@@ -27,13 +29,13 @@ class MainActivity : AppCompatActivity() {
         val txtName = findViewById<TextView>(R.id.txtName)
 
         txtName.text = getString(R.string.txtName) + " " + displayName + "!"
-        val dataSource  = DataSource()
-        val productRepository = Repository(dataSource)
+
         if (Intent.ACTION_SEARCH == intent.action){
             intent.getStringExtra(SearchManager.QUERY)?.also {
-                query -> productRepository.getProduct(query)
+                query -> ProductAdapter(this@MainActivity,Repository(DataSource()).getProduct(query))
             }
         }
+
         btnDisconnect.setOnClickListener {
             finish()
             //exitProcess(0)
@@ -46,7 +48,8 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
-        val inflater = menuInflater.inflate(R.menu.menu_main, menu)
+        val inflater = menuInflater
+        inflater.inflate(R.menu.menu_main, menu)
 
         // Get the SearchView and set the searchable configuration
         val searchManager = getSystemService(Context.SEARCH_SERVICE) as SearchManager

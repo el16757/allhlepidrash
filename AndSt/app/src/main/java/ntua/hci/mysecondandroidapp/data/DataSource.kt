@@ -118,7 +118,7 @@ class DataSource {
     fun logout() {
         // TODO: revoke authentication
     }
-    fun getProducts(item :String) : Result<List<ProductItems>>{
+    fun getProducts(item :String) :List<ProductItems>{
         try {
             val hostSettings = readSettings(R.xml.settings, "host")
 
@@ -139,9 +139,9 @@ class DataSource {
                 val item = ProductItems(itemName,storename,price)
                 items.add(item)
             }
-            return Result.Success(items)
+            return items
         } catch (e: Throwable) {
-            return Result.Error(IOException("Error counld't show products", e))
+            throw IOException("Error counld't show products", e)
         }
     }
     fun addToCart(item :String , username : String , quantity : Int): Result<String>{
@@ -190,8 +190,11 @@ class DataSource {
             val items : MutableList<CartItems> = mutableListOf<CartItems>()
             for (i in 0 until data.length())  {
                 val obj = data.getJSONObject(i);
-                val itemName = obj.keys().next()
-                val item = CartItems(itemName, obj.getInt(itemName))
+                val itemName = obj.getString("itemName")
+                val storename = obj.getString("storename")
+                val price = obj.getDouble("price")
+                val product = ProductItems(itemName,storename,price)
+                val item = CartItems(product)
                 items.add(item)
             }
             return Result.Success(items)

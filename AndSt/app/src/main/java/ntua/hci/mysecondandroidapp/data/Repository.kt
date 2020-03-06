@@ -2,6 +2,7 @@ package ntua.hci.mysecondandroidapp.data
 
 import ntua.hci.mysecondandroidapp.data.model.LoggedInUser
 import ntua.hci.mysecondandroidapp.data.model.ProductItems
+import ntua.hci.mysecondandroidapp.ui.product.ProductAdapter
 
 /**
  * Class that requests authentication and user information from the remote data source and
@@ -50,8 +51,9 @@ class Repository(val dataSource: DataSource) {
         return result
     }
 
-    fun getProduct(query : String): Result<List<ProductItems>> {
-        return dataSource.getProducts(query)
+    fun getProduct(query : String): List<ProductItems> {
+        var x = dataSource.getProducts(query)
+        return x
     }
 
     private fun setLoggedInUser(loggedInUser: LoggedInUser) {

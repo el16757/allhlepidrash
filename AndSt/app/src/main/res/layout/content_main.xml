@@ -9,6 +9,7 @@
     tools:context=".ui.main.MainActivity"
     tools:showIn="@layout/activity_main">
 
+
     <TextView
         android:id="@+id/txtName"
         android:layout_width="wrap_content"
@@ -22,10 +23,10 @@
         android:id="@+id/btnDisconnect"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="100dp"
         android:text="@string/DisconnectButton"
         android:textAllCaps="false"
-        app:layout_constraintHorizontal_bias="0.947"
+        app:layout_constraintHorizontal_bias="0.951"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/txtName" />
@@ -43,18 +44,40 @@
         app:layout_constraintTop_toBottomOf="@+id/txtName"
         app:srcCompat="@mipmap/ic_launcher_logos" />
 
-    <SearchView
-        android:id="@+id/search"
-        android:layout_width="364dp"
-        android:layout_height="63dp"
-        android:layout_marginTop="54dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="372dp"
-        android:contentDescription="@string/search_bar"
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="98dp"
+        android:layout_marginEnd="48dp"
+        android:layout_marginBottom="400dp"
+        android:text="@string/details"
+        android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.741"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <RelativeLayout
+        android:id="@+id/showCart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="16dp"
+        android:layout_marginStart="74dp"
+        android:layout_marginTop="19dp"
+        android:layout_marginBottom="117dp"
+        app:layout_constraintBottom_toTopOf="@+id/btnDisconnect"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.205"
+        app:layout_constraintStart_toEndOf="@+id/imageView"
+        app:layout_constraintTop_toBottomOf="@+id/txtName"
+        app:layout_constraintVertical_bias="0.0">
+
+
+
+    </RelativeLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
